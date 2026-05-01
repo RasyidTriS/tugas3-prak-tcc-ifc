@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes - 123230043</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>My Notes</h1>
+            <p class="subtitle">Informatics - 123230043</p>
+        </header>
+        
+        <div class="editor-section">
+            <input type="hidden" id="note-id">
+            <input type="text" id="judul" placeholder="Judul Catatan..." class="input-field">
+            <textarea id="isi" placeholder="Tulis isi catatan di sini..." class="textarea-field"></textarea>
+            <div class="button-group">
+                <button id="btn-simpan" class="btn-primary" onclick="saveNote()">Tambah Catatan</button>
+                <button id="btn-batal" class="btn-secondary" onclick="resetForm()" style="display:none;">Batal</button>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="notes-list" class="notes-grid">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
