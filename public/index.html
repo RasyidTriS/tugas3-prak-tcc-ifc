@@ -4,30 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Notes - 123230043</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app-container">
-        <header>
-            <h1>My Notes</h1>
-            <p class="subtitle">Informatics - 123230043</p>
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">My Notes</h1>
+                <p class="app-subtitle">Informatics - 123230043</p>
+            </div>
         </header>
         
-        <div class="editor-section">
-            <input type="hidden" id="note-id">
-            <input type="text" id="judul" placeholder="Judul Catatan..." class="input-field">
-            <textarea id="isi" placeholder="Tulis isi catatan di sini..." class="textarea-field"></textarea>
-            <div class="button-group">
-                <button id="btn-simpan" class="btn-primary" onclick="saveNote()">Tambah Catatan</button>
-                <button id="btn-batal" class="btn-secondary" onclick="resetForm()" style="display:none;">Batal</button>
-            </div>
-        </div>
+        <main class="main-content">
+            <section class="editor-card">
+                <h2 class="section-title">Buat Catatan Baru</h2>
+                <form class="editor-form" onsubmit="return false;">
+                    <input type="hidden" id="note-id">
+                    <div class="form-group">
+                        <input type="text" id="judul" placeholder="Judul catatan Anda..." class="input-field">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="isi" placeholder="Tulis isi catatan di sini..." class="textarea-field"></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button id="btn-simpan" class="btn-primary" onclick="saveNote()">
+                            <span class="btn-icon">➕</span>
+                            <span>Tambah Catatan</span>
+                        </button>
+                        <button id="btn-batal" class="btn-secondary" onclick="resetForm()" style="display:none;">
+                            <span class="btn-icon">✕</span>
+                            <span>Batal</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
 
-        <div class="divider"></div>
-
-        <div id="notes-list" class="notes-grid">
-            </div>
+            <section class="notes-section">
+                <h2 class="section-title">Daftar Catatan Anda</h2>
+                <div id="notes-list" class="notes-grid"></div>
+                <div id="empty-state" class="empty-state" style="display:none;">
+                    <p class="empty-message">Belum ada catatan. Mulai buat catatan baru!</p>
+                </div>
+            </section>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>

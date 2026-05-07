@@ -1,14 +1,20 @@
-FROM node:20
+# Use Node.js 18 as base image
+FROM node:18
 
+# Set working directory
 WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
-RUN npm ci
 
+# Install dependencies
+RUN npm install
+
+# Copy remaining source code
 COPY . .
 
-ENV PORT=8080
+# Expose port 3000
+EXPOSE 3000
 
-EXPOSE 8080
-
+# Set command to run the application
 CMD ["npm", "start"]
